@@ -1,0 +1,16 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url('../public/assets/images/form-images/form-img-1.webp');
+}
+
+.container-fluid {
+    background-image: url('/assets/images/form-images/form-img-1.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-white {
+    color: black;
+}

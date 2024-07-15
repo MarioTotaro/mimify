@@ -1,0 +1,20 @@
+#connect-wallet-button {
+    background-color: #1f2937; /* Dark color suitable for DEX */
+    color: #f3f4f6; /* Light text color */
+    border: 2px solid #2563eb; /* Border color for emphasis */
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #connect-wallet-button:hover {
+    background-color: #2563eb; /* Hover background color */
+    color: #ffffff; /* Hover text color */
+  }
+
+  #connect-wallet-button svg {
+    margin-right: 8px;
+  }

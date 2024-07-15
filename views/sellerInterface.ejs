@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Interface</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-color: #f8f9fa;
+        font-family: "Arial", sans-serif;
+      }
+      .container-fluid {
+        background-image: url("/assets/images/form-images/form-img-1.webp");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+      .text-white {
+        color: white !important;
+      }
+      .card {
+        background-color: rgba(0, 0, 0, 0.75);
+        border: none;
+      }
+      .card-body {
+        color: white;
+      }
+      .btn-primary,
+      .btn-secondary {
+        width: 200px;
+      }
+      .nft-image {
+        max-width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+      }
+      .info-text {
+        font-size: 1.2rem;
+        margin-top: 15px;
+      }
+      .explorer-btn {
+        margin-top: 20px;
+      }
+      .btn img {
+        max-height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      .modal-content {
+        background-color: rgba(0, 0, 0, 0.85);
+        color: white;
+        text-align: center;
+      }
+      .modal-body img {
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 15px;
+      }
+      .modal-header {
+        border-bottom: none;
+        justify-content: center;
+      }
+      .modal-title {
+        text-align: center;
+        width: 100%;
+      }
+      .tx-link {
+        color: #17a2b8;
+        text-decoration: none;
+        word-break: break-all;
+      }
+      .tx-link:hover {
+        color: #138496;
+        text-decoration: underline;
+      }
+      .loading-icon {
+        display: none;
+        margin-top: 20px;
+      }
+      .loading-icon.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid h-100 d-flex justify-content-center align-items-center">
+      <div class="card p-4">
+        <div class="card-body text-center">
+          <h1 class="display-4 text-white"><%= eventTitle %></h1>
+          <img src="/assets/images/masterz-logo.jpg" alt="NFT Image" class="nft-image" />
+          <div class="info-text">
+            <p>Token Symbol: <%= nftSymbol %></p>
+            <p>Remaining supply: <%= nftSupply %></p>
+            <p>Owner: <%=owner%></p>
+          </div>
+          <form id="mintNftForm" action="/mintNft" method="post">
+            <button type="submit" class="btn btn-primary m-2" id="mintNftButton">
+              Buy with Solana
+            </button>
+            <button type="submit" class="btn btn-secondary m-2">
+              Buy with Credit Card
+            </button>
+          </form>
+
+          <div class="explorer-btn text-center w-100">
+            <a class="btn btn-secondary" href="https://explorer.solana.com/">
+              <img
+                src="https://seeklogo.com/images/S/solana-sol-logo-12828AD23D-seeklogo.com.png"
+                alt="Solana Logo"
+              />
+              View on Solana Explorer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loadingModalLabel">Loading...</h5>
+          </div>
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+            <img src="https://i.imgur.com/6RMhx.gif" alt="Loading..." class="loading-icon" />
+            <p>Please wait, the minting process is in progress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modale -->
+    <div class="modal fade" id="mintModal" tabindex="-1" aria-labelledby="mintModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mintModalLabel">Minting Success</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <img src="/assets/images/success.png" alt="Success Image" class="nft-image" />
+            <p>Your Token Event was minted</p>
+            <p>
+              tx:
+              <a href="https://explorer.solana.com/tx/2FCrPi9gJv4reeqRik5qiW65Gn5RfyQKu81miKkWdCYaPieynJizZGRUPSsCq33ti25WahxaYZWiRf3kM1gyPqTL" class="tx-link">2FCrPi9gJv4reeqRik5qiW65Gn5RfyQKu81m...</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Show the modal if the minting was successful
+        <% if (typeof showModal !== 'undefined' && showModal) { %>
+          $('#loadingModal').modal('hide');
+          $('#mintModal').modal('show');
+        <% } %>
+
+        $('#mintNftForm').on('submit', function(e) {
+          e.preventDefault();
+          $('.loading-icon').addClass('show');
+          $('#loadingModal').modal('show');
+          // Add any AJAX or form submission logic here
+          // For now, just simulate form submission delay
+          setTimeout(function() {
+            $('.loading-icon').removeClass('show');
+            $('#loadingModal').modal('hide');
+            $('#mintModal').modal('show');
+          }, 2000); // Simulate a 2-second delay
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

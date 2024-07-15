@@ -1,0 +1,225 @@
+<%-include('partials/header')%>
+<style>
+  #icon-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1; /* Ensure icons stay behind the text */
+  }
+
+  .icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    transition: top 1s linear, left 1s linear; /* Add smooth transitions */
+  }
+</style>
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+  <h1 class="display-4 fw-bold text-body-emphasis">Our goal is simple.</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      We want to provide a tool that allows anyone to create ecosystems on
+      blockchain technology
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">
+        Our Mission
+      </button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4">
+        Our Services
+      </button>
+    </div>
+  </div>
+  <div class="overflow-hidden" style="max-height: 30vh">
+    <div class="container px-5">
+      <img
+        id="animatedImage"
+        src="assets/images/blockchain.png"
+        class="img-fluid rounded-3 mb-4"
+        alt="Example image"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Our features</h2>
+  <div
+    class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5"
+    style="position: relative; overflow: hidden"
+  >
+    <canvas
+      id="fireworksCanvas"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      "
+    ></canvas>
+    <div class="col d-flex flex-column align-items-start gap-2">
+      <h2 class="fw-bold text-body-emphasis">What I can do with Mimify?</h2>
+      <p class="text-body-secondary">
+        Mimify is an Automated NFT and Token Generation Dapp on Solana. With
+        Mimify you can create fully customisable digital assets and market them
+        through automated interface generation!
+      </p>
+    </div>
+
+    <div class="col">
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4 rounded-3"
+          >
+            <img
+              src="assets/images/nft.png"
+              alt="Icona"
+              style="width: 3em; height: 3em"
+            />
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">NFT</h4>
+          <p class="text-body-secondary">
+            Create unique NFTs to represent your digital art with Mimify!
+          </p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4 rounded-3"
+          >
+            <img
+              src="assets/images/tokens.png"
+              alt="Icona"
+              style="width: 3em; height: 3em"
+            />
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Token</h4>
+          <p class="text-body-secondary">
+            Mimify gives you the ability to create tokens and market them easily
+          </p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-medium d-inline-flex align-items-center justify-content-center bg-gradient fs-4 rounded-3"
+          >
+            <!-- Sostituzione dell'icona SVG con una PNG -->
+            <img
+              src="assets/images/sales-icon.png"
+              alt="Icona"
+              style="width: 3em; height: 3em"
+            />
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Sales interface</h4>
+          <p class="text-body-secondary">
+            Mimify automatically creates web interfaces for you to sell your
+            tokens!
+          </p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center bg-gradient fs-4 rounded-3"
+          >
+            <!-- Sostituzione dell'icona SVG con una PNG -->
+            <img
+              src="assets/images/automatic-listening.png"
+              alt="Icona"
+              style="width: 3em; height: 3em"
+            />
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">
+            Automatic Listening
+          </h4>
+          <p class="text-body-secondary">
+            Mimify automatically market your artwork on major exchanges.
+            <span class="coming-soon">Coming Soon</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col">
+      <div class="card shadow-sm">
+        <img
+          class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="225"
+          src="assets/images/index/card/digital-artist.png"
+          alt="Thumbnail"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Are you an digital artist?</h5>
+          <p class="card-text">
+            With Minmic you can create NFTs for your digital works giving them
+            exclusivity and value!
+          </p>
+          <a href="#" class="btn btn-primary --bs-primary-border-subtle"
+            >Create now</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow-sm">
+        <img
+          class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="225"
+          src="assets/images/index/card/event-organizator.jpg"
+          alt="Thumbnail"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Are you an event organiser?</h5>
+          <p class="card-text">
+            With Minmic you can create tickets for your events using all the
+            advantages of blockchain technology!
+          </p>
+          <a href="/event-creator-form" class="btn btn-primary --bs-primary-border-subtle"
+            >Create now</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow-sm">
+        <img
+          class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="225"
+          src="assets/images/index/card/supply-chain.jpg"
+          alt="Thumbnail"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Are you an enterpreneur?</h5>
+          <p class="card-text">
+            With MinmicYyou can track your production chain allowing
+            traceability of products!
+          </p>
+          <a href="#" class="btn btn-primary --bs-primary-border-subtle"
+            >Create now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+<script src="js/index.js"></script>
+<%-include('partials/footer')%>

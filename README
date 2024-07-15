@@ -1,0 +1,17 @@
+# Mimify
+
+Mimify è una dApp che si pone come obiettivo quello di essere un "semplificatore" di iterazioni tra utenti normali e la blockchain.
+
+
+## Requisiti
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) 
+
+## Installazione
+
+- Posizionarsi nella cartella Mimify
+- Lanciare il comando node server.js per far partire il server.
+
+## Funzionamento
+- Al momento il servizio funziona utilizzando dati mockati ed è testabile solo la sezione event-organizator. 

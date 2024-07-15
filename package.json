@@ -1,0 +1,50 @@
+{
+  "name": "minmum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/createNft.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarioTotaro/minmum.git"
+  },
+  "author": "Mario Totaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarioTotaro/minmum/issues"
+  },
+  "homepage": "https://github.com/MarioTotaro/minmum#readme",
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.2.1",
+    "@metaplex-foundation/umi": "^0.9.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.9.1",
+    "@metaplex-foundation/umi-uploader-irys": "^0.9.1",
+    "@solana/web3.js": "^1.91.8",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "bs58": "^5.0.0",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "crypto-browserify": "^3.12.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.14.10"
+  }
+}
